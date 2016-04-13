@@ -1,12 +1,4 @@
-// This program is copyright VUW.
-// You are granted permission to use it to construct your answer to a COMP102 assignment.
-// You may not distribute it in any other way without permission.
 
-/* Code for COMP102 Assignment 5
- * Name:
- * Usercode:
- * ID:
- */
 
 import ecs100.*;
 import java.util.*;
@@ -23,42 +15,43 @@ public class ImageRenderer{
     public static final int pixelSize = 2;  
 
     public void renderImageCore(){
+    String filename = UIFileChooser.open("Choose a file");
+        UI.println("Printing contents of"+filename);
 
+        try {
+
+            Scanner scan = new Scanner(new File(filename));
+
+            String p3 = scan.next();
+            int cols = scan.nextInt();
+            int rows = scan.nextInt();
+            int max = scan.nextInt();
+
+            int row = 0;
+            while(row<rows) {
+                int col = 0;
+                while(col<cols) {
+                    int x = left+ pixelSize*col;
+                    int y = top+pixelSize*row;
+                    int red = scan.nextInt();
+                    int green = scan.nextInt();
+                    int blue = scan.nextInt();
+                    UI.setColor(new Color(red,green,blue));
+
+                    UI.fillRect(x, y, pixelSize, pixelSize);
+                    col++;
+                }
+                row++;
+
+            }
+        }
+        catch(IOException e){UI.println("File reading failed");}
 
     }
-
-    
-     * Renders a ppm image file.
-     * Renders the image at position (left, top).
-     * Each pixel of the image  is rendered by a square of size pixelSize
-     * Assumes that
-     * - the colour depth is 255,
-     * - there is just one image in the file (not "animated"), and
-     * - there are no comments in the file.
-     * The first four tokens are "P3", number of columns, number of rows, 255
-     * The remaining tokens are the pixel values (red, green, blue for each pixel)
-     */
-    public void renderImageHelper(Scanner sc){
-        
-
-    }
-
-    
-     * Renders a ppm image file which may be animated (multiple images in the file)
-     * Asks for the name of the file, then renders the image at position (left, top).
-     * Each pixel of the image  is rendered by a square of size pixelSize
-     * Renders each image in the file in turn with 200 mSec delay.
-     * Repeats the sequence 3 times.
-     */
-    public void renderAnimatedImage(){
-        
-
-    }
+}
 
 
-    /** ---------- The code below is already written for you ---------- **/
-
-    // Constructor
+    // Constructer
     public ImageRenderer() {
         UI.initialise();
         UI.addButton("Clear", UI::clearGraphics );
