@@ -22,16 +22,12 @@ public class ImageRenderer{
     public static final int left = 20;  // left edge of the image
     public static final int pixelSize = 2;  
 
-    /** Core:
-     * Renders a ppm image file.
-     * Asks for the name of the file, then calls renderImageHelper.
-     */
     public void renderImageCore(){
-        /*# YOUR CODE HERE */
+
 
     }
 
-    /** Core:
+    
      * Renders a ppm image file.
      * Renders the image at position (left, top).
      * Each pixel of the image  is rendered by a square of size pixelSize
@@ -43,11 +39,11 @@ public class ImageRenderer{
      * The remaining tokens are the pixel values (red, green, blue for each pixel)
      */
     public void renderImageHelper(Scanner sc){
-        /*# YOUR CODE HERE */
+        
 
     }
 
-    /** Completion
+    
      * Renders a ppm image file which may be animated (multiple images in the file)
      * Asks for the name of the file, then renders the image at position (left, top).
      * Each pixel of the image  is rendered by a square of size pixelSize
@@ -55,7 +51,7 @@ public class ImageRenderer{
      * Repeats the sequence 3 times.
      */
     public void renderAnimatedImage(){
-        /*# YOUR CODE HERE */
+        
 
     }
 
